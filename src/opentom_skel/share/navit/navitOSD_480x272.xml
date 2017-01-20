@@ -1,0 +1,66 @@
+<xml>
+
+
+<osd name="my_osd_cmdif_1" h="1" w="1"  update_period="2"  enabled="yes" type="cmd_interface" x="-196"  y="-63" command='
+
+    osd_configuration=(vehicle.position_speed>2?32:0)+(
+    route.route_status==1     ? 1 :
+    (route.route_status==0     ? 1 :
+    (route.route_status==3     ? 2 :
+    (route.route_status==5     ? 4 :
+    (route.route_status==13    ? 4 :
+    (route.route_status==17    ? 8 :
+    (route.route_status==33    ? 8 : 12
+    )))))));
+
+    '  />
+<osd name="icon_route_status2" enabled="yes"  osd_configuration="4" type="button" command="" src="status_calculating.png"  x="0" y="-119" />
+<osd name="icon_route_status1" enabled="yes"  osd_configuration="2" type="button" command="" src="status_no_route.png"  x="0" y="-119" />
+<osd name="icon_route_status" enabled="no" osd_configuration="1" type="button" command="" src="status_no_destination_wh_48_48.png" x="0" y="-119" />
+<osd enabled="yes" osd_configuration="8" type="navigation_next_turn" x="0" y="-119" background_color="#1b0877cc" icon_src="%s_wh_48_48.png"/>
+
+	<!-- OSD externe CLM  (a inclure dans navit.xml après la balise </gui>)
+	<xi:include href="/mnt/sdcard/navitOSD_480x272.xml"/>
+	-->
+	
+	<!-- l'indicateur de dépassement de vitesse -->
+	<osd enabled="no" type="speed_warner" x="0" y="0" w="80" h="80"/>
+	
+	<!-- l'échelle -->
+	<osd enabled="yes" type="scale" x="-100" y="0" w="100" h="26" font_size="150"/>
+	
+	<!-- l'indicateur d'état du GPS -->
+	<osd enabled="yes" type="gps_status" x="-40" y="-113" w="40" h="40" background_color="#1b0877cc"/>
+	
+ 	<osd enabled="yes" osd_configuration="8" type="text" label="${navigation.item[1].length[named]}"
+	 x="0" y="-49" 
+    font_size="320" w="100" h="24" align="4" background_color="#1b0877cc"/> 
+    
+    <!-- L'heure d'arrivée -->
+ 	<osd enabled="yes" osd_configuration="8" type="text" label="A:${navigation.item.destination_time[arrival]}"
+	x="-100" y="-73"
+ 	font_size="320" w="100" h="24" align="4" background_color="#1b0877cc"/> 
+    <!-- La distance restante avant arrivée à destination -->
+ 	<osd enabled="yes" type="text" label="${navigation.item.destination_length[named]}"
+	w="100" h="25" x="-100" y="-25"
+    font_size="320" w="100" h="24" align="4" background_color="#1b0877cc"/>
+    <!-- Le temps restant pour avant arriver à destination -->
+ 	<osd enabled="yes" osd_configuration="8" type="text" label="D:${navigation.item.destination_time[remaining]}" x="-100" y="-49"
+ 	font_size="320" w="100" h="24" align="4" background_color="#1b0877cc"/>
+    
+    <!-- Le nom de la rue suivie de sa vitesse limitée -->
+	<osd enabled="yes" type="text" label="${tracking.item.street_name} ${tracking.item.street_name_systematic}" 
+  		font_size="320" w="380" h="25" align="0" background_color="#1b0877cc" x="0" y="-25"/> 
+  		
+ <osd enabled="yes"  type="button" x="-60" y="50" command="zoom_in()" src="gui_zoom_in.png"/>
+ <osd enabled="yes"  type="button" x="-60" y="100" command="zoom_out()" src="gui_zoom_out.png"/> 
+ <osd enabled="yes"  type="button" x="5" y="70" command='spawn("setbrightness","85")' src="gui_sun.png"/>
+ <osd enabled="yes"  type="button" x="5" y="110" command='spawn("setbrightness","6")' src="gui_moon.png"/>
+
+ 
+   
+  	<!-- La vitesse du véhicule -->
+ 	<osd enabled="yes" osd_configuration="32" type="text" label="${vehicle.position_speed[value]}" x="0" y="0"
+ 		font_size="1000" w="130" h="70" align="4" background_color="#1b0877cc" />
+   route.route_status==1     ? i :
+</xml>
