@@ -36,12 +36,17 @@ cd $DIST
 # Suspend when the power button is pressed or the battery is low
 power_button -b bin/suspend bin/suspend &
 
+swapon /dev/mmcblk0p2
+mount / -o remount,async
+mount /mnt/sdcard -o remount,async
+
 while /bin/true
 do
 	sleep 1
 	pidof nano-X || { 
 		nice -n -10 nano-X &
-		nanowm &
+#		nanowm &
+		launcher etc/launcher.cnf &
 	}
 	sleep 1
 	nxmenu $DIST/etc/nxmenu.cfg >$DIST/logs/nxmenu.log 2>&1

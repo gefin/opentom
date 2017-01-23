@@ -1,0 +1,1 @@
+[ -z `pidof nxlight` ] && nxlight

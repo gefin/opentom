@@ -474,7 +474,7 @@ $(TOMDIST): nano-X
 	mkdir -p $(TOMDIST)/logs
 	cp -R src/opentom_skel/* $(TOMDIST)/
 	cp $(ARM_APPROOT)/bin/nano-X $(TOMDIST)/bin
-	cd build/microwin/src/bin && cp nanowm setportrait nxeyes nxclock nxroach nxmag nxview slider vnc $(TOMDIST)/bin
+	cd build/microwin/src/bin && cp nanowm setportrait launcher nxeyes nxclock nxroach nxmag nxview slider vnc $(TOMDIST)/bin
 	mkdir -p $(TOMDIST)/lib/ts/
 	cp -R $(ARM_SYSROOT)/usr/lib/ts/*.so $(TOMDIST)/lib/ts/
 	cp $(ARM_SYSROOT)/usr/bin/ts_calibrate $(ARM_SYSROOT)/usr/bin/ts_test  $(TOMDIST)/bin

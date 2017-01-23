@@ -1,6 +1,8 @@
 #! /bin/sh
 
-export LANG=en_US.utf8
+if [ ! -z `pidof navit` ]; then echo Navit is running; exit ;  fi
+
+export LANG=de_DE.utf8
 
 # Navit can use SiRFstar III GPS (device id 3; used in TT7xx) without gltt
 # For GPS chips without NMEA output gltt is used
@@ -21,6 +23,9 @@ if [ "`cat /proc/barcelona/tfttype`" == 2 ] || [ "`cat /proc/barcelona/tfttype`"
 else
 	NAVIT_CONFIG=$DIST/share/navit/navit_xl.xml
 fi
+
+	NAVIT_CONFIG=$DIST/share/navit/navit272.xml
+
 
 navit -c $NAVIT_CONFIG $* >$DIST/logs/navit.log 2>&1
 
