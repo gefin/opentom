@@ -14,9 +14,8 @@
     )))))));
 
     '  />
-<osd name="icon_route_status2" enabled="yes"  osd_configuration="4" type="button" command="" src="status_calculating.png"  x="0" y="-119" />
-<osd name="icon_route_status1" enabled="yes"  osd_configuration="2" type="button" command="" src="status_no_route.png"  x="0" y="-119" />
-<osd name="icon_route_status" enabled="no" osd_configuration="1" type="button" command="" src="status_no_destination_wh_48_48.png" x="0" y="-119" />
+<osd enabled="yes" osd_configuration="4" type="button" command="" src="status_calculating.png"  x="0" y="-119" />
+<osd enabled="yes" osd_configuration="2" type="button" command="" src="status_no_route.png"  x="0" y="-119" />
 <osd enabled="yes" osd_configuration="8" type="navigation_next_turn" x="0" y="-119" background_color="#1b0877cc" icon_src="%s_wh_48_48.png"/>
 
 	<!-- OSD externe CLM  (a inclure dans navit.xml après la balise </gui>)
@@ -54,13 +53,14 @@
   		
  <osd enabled="yes"  type="button" x="-60" y="50" command="zoom_in()" src="gui_zoom_in.png"/>
  <osd enabled="yes"  type="button" x="-60" y="100" command="zoom_out()" src="gui_zoom_out.png"/> 
- <osd enabled="yes"  type="button" x="5" y="70" command='spawn("setbrightness","85")' src="gui_sun.png"/>
- <osd enabled="yes"  type="button" x="5" y="110" command='spawn("setbrightness","6")' src="gui_moon.png"/>
+ <osd enabled="yes"  type="button" x="5" y="70" command='layout_name="Car";spawn("setbrightness","90")' src="gui_sun.png"/>
+ <osd enabled="yes"  type="button" x="5" y="110" command='layout_name="Car-dark";spawn("setbrightness","20")' src="gui_moon.png"/>
+
 
  
    
   	<!-- La vitesse du véhicule -->
  	<osd enabled="yes" osd_configuration="32" type="text" label="${vehicle.position_speed[value]}" x="0" y="0"
  		font_size="1000" w="130" h="70" align="4" background_color="#1b0877cc" />
-   route.route_status==1     ? i :
+   
 </xml>
